@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {SiteHeader,SiteFooter} from "@/components/site-shell";
 import {siteConfig} from "@/lib/site-config";
 export const metadata={title:"Adatkezelési tájékoztató – Leadfy",description:"A Leadfy ajánlatkérési adatainak kezelése.",robots:{index:false,follow:false}};
@@ -10,4 +11,4 @@ export default function PrivacyPage(){return <><SiteHeader/><main className="sub
 <h2>6. Biztonság, naplózás és sütik</h2><p>Az űrlap visszaélésszerű használatának korlátozására a szerver a kérés IP-címéből képzett hash-t rövid ideig, futó memóriában használja; az alkalmazás nem naplózza a teljes ajánlatkérés tartalmát vagy a teljes IP-címet. A weboldal nem használ analitikai sütiket, hirdetési pixeleket vagy hírlevél-feliratkozást. A tárhelyszolgáltató a működéshez és biztonsághoz szükséges technikai naplóadatokat kezelheti.</p>
 <h2>7. Az érintettek jogai</h2><p>Az érintett a fenti e-mail-címen kérhet tájékoztatást, hozzáférést, helyesbítést, törlést vagy az adatkezelés korlátozását, illetve tiltakozhat a jogos érdeken alapuló adatkezelés ellen. A jogszabályi feltételek fennállásakor adathordozhatóság is kérhető. A hozzájárulás visszavonása nem érinti a korábbi adatkezelés jogszerűségét.</p>
 <h2>8. Panasz benyújtása</h2><p>Ha úgy gondolod, hogy az adatkezelés sérti a jogaidat, panaszt tehetsz a Nemzeti Adatvédelmi és Információszabadság Hatóságnál (NAIH): <a href="https://www.naih.hu" target="_blank" rel="noreferrer">www.naih.hu</a>.</p>
-<p><a className="btn btn-outline" href="/">Vissza a főoldalra</a></p></article></div></main><SiteFooter/></>}
+<p><Link className="btn btn-outline" href="/">Vissza a főoldalra</Link></p></article></div></main><SiteFooter/></>}
