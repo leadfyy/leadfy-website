@@ -4,7 +4,7 @@ export const runtime="nodejs";
 const WINDOW_MS=15*60*1000;
 const MAX_REQUESTS=3;
 const rateLimits=new Map<string,{count:number;resetAt:number}>();
-function clean(value:unknown,max:number){return typeof value==="string"?value.replace(/[\\u0000-\\u001f\\u007f]/g," ").trim().slice(0,max):"";}
+function clean(value:unknown,max:number){return typeof value==="string"?Array.from(value).filter(char=>{const code=char.charCodeAt(0);return code>=32&&code!==127;}).join("").trim().slice(0,max):"";}
 function escapeHtml(value:string){const entities:Record<string,string>={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};return value.replace(/[&<>"']/g,char=>entities[char]??char);}
 export async function POST(request:NextRequest){
  const apiKey=process.env.RESEND_API_KEY;
