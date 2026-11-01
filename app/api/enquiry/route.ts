@@ -31,7 +31,7 @@ export async function POST(request:NextRequest){
  const current=rateLimits.get(key);
  if(current&&current.resetAt>now&&current.count>=MAX_REQUESTS)return NextResponse.json({error:"Rövid időn belül túl sok beküldés érkezett. Kérjük, próbáld újra később."},{status:429,headers:{"Retry-After":String(Math.ceil((current.resetAt-now)/1000))}});
  rateLimits.set(key,current&&current.resetAt>now?{count:current.count+1,resetAt:current.resetAt}:{count:1,resetAt:now+WINDOW_MS});
- const rows=[["Név",name],["Cég",company],["E-mail",email],["Szolgáltatási terület",serviceArea],["Kiemelt szolgáltatás",priorityService],["Telefon",phone||"—"],["Weboldal / profil",website||"—"],["Üzenet",message||"—"]];
+ const rows=[["Név",name],["Cég",company],["E-mail",email],["Szolgáltatási terület",serviceArea],["Kiemelt szolgáltatás",priorityService],["Telefon",phone||"—"],["Weboldal / profil",website||"—"],["Üzenet",message||"—"],["Adatkezelési tájékoztató elfogadva","Igen"]];
  const html="<h2>Új Leadfy pilot megkeresés</h2><table>"+rows.map(([label,value])=>"<tr><th align=\"left\" style=\"padding:6px 12px 6px 0\">"+label+"</th><td style=\"padding:6px 0\">"+escapeHtml(value)+"</td></tr>").join("")+"</table>";
  const textBody=rows.map(([label,value])=>label+": "+value).join("\n");
  try{
