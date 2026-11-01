@@ -62,8 +62,8 @@ export function EnquiryForm({enabled}:{enabled:boolean}){
     <label className="privacy-consent"><input type="checkbox" name="privacyAccepted" required checked={values.privacyAccepted} onChange={change} onInvalid={invalid}/><span>Elolvastam az <a href="/privacy" target="_blank" rel="noreferrer">adatkezelési tájékoztatót</a>, és tudomásul vettem az ajánlatkérés kezelését. <b>*</b></span></label>
     <div className="honeypot" aria-hidden="true"><label htmlFor="websiteTrap">Ne töltsd ki ezt a mezőt</label><input id="websiteTrap" name="websiteTrap" tabIndex={-1} autoComplete="off" value={values.websiteTrap} onChange={change} onInvalid={invalid}/></div>
     {error&&<p className="form-error" role="alert">{error}</p>}
-    <button className="btn btn-primary form-submit" type="submit" disabled={!enabled||pending}>{pending?"Küldés folyamatban…":"Beszéljünk a pilotról ↗"}</button>
-    <p className="form-footnote">A *-gal jelölt mezők kitöltése kötelező. Az elküldés után Adam áttekinti a megkeresést, és egyeztet veled a pilotról.</p>
+    <button className="btn btn-primary form-submit" type="submit" disabled={!enabled||pending}>{pending?"Küldés folyamatban…":"Beszéljünk az együttműködésről"}</button>
+    <p className="form-footnote">A *-gal jelölt mezők kitöltése kötelező. Az elküldés után Ádám áttekinti a megkeresést, és egyeztet veled a pilotról.</p>
    </fieldset>
   </form>
  </div>;
