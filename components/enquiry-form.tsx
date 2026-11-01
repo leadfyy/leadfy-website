@@ -25,7 +25,7 @@ export function EnquiryForm({enabled}:{enabled:boolean}){
   const id=submissionId.current??crypto.randomUUID();
   submissionId.current=id;
   try{
-   const response=await fetch("/api/enquiry",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...values,submissionId:id,website:values.websiteTrap})});
+   const response=await fetch("/api/enquiry",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...values,submissionId:id,honeypot:values.websiteTrap})});
    const result=await response.json().catch(()=>({})) as {error?:string};
    if(!response.ok){setError(result.error??"Nem sikerült továbbítani a megkeresést. Kérjük, próbáld újra később.");setPending(false);return;}
    router.push("/thank-you");
