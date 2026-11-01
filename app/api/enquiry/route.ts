@@ -27,7 +27,7 @@ export async function POST(request:NextRequest){
  const ip=request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()||request.headers.get("x-real-ip")||"unknown";
  const key=createHash("sha256").update(ip).digest("hex");
  const now=Date.now();
- if(rateLimits.size>5000){for(const [k,v] of rateLimits)if(v.resetAt<=now)rateLimits.delete(k);}
+ for(const [k,v] of rateLimits)if(v.resetAt<=now)rateLimits.delete(k);
  const current=rateLimits.get(key);
  if(current&&current.resetAt>now&&current.count>=MAX_REQUESTS)return NextResponse.json({error:"Rövid időn belül túl sok beküldés érkezett. Kérjük, próbáld újra később."},{status:429,headers:{"Retry-After":String(Math.ceil((current.resetAt-now)/1000))}});
  rateLimits.set(key,current&&current.resetAt>now?{count:current.count+1,resetAt:current.resetAt}:{count:1,resetAt:now+WINDOW_MS});
