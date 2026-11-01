@@ -1,3 +1,3 @@
-import {SiteHeader,SiteFooter} from "@/app/page";
+import {SiteHeader,SiteFooter} from "@/components/site-shell";
 export const metadata={title:"Köszönjük – Leadfy",robots:{index:false,follow:false}};
 export default function ThankYouPage(){return <><SiteHeader/><main className="subpage"><div className="container"><article className="subpage-card"><div className="thank-you-mark">✓</div><h1>Köszönjük a megkeresést!</h1><p>Az ajánlatkérő űrlap jelenleg még nem aktív, ezért ezen az oldalon nem fogadunk be megkereséseket. Ha egy korábban egyeztetett tesztküldés után jutottál ide, az csak a tesztfelület része.</p><p><a className="btn btn-primary" href="/">Vissza a főoldalra</a></p></article></div></main><SiteFooter/></>}
