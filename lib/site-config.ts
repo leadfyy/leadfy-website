@@ -5,7 +5,7 @@ export const siteConfig = {
   market: "Magyarország",
   intendedAudience: "1–10 fős, tulajdonos által vezetett HVAC-vállalkozások",
   pricing: { monthlyPilotEur: null as number | null, displayConfirmedPrice: false },
-  enquiry: { enabled: true, destinationConfigured: true },
+  enquiry: { enabled: true, destinationConfigured: true, requiresResendApiKey: true },
   contact: {
     legalName: "Bédics Ádám",
     legalStatus: "magánszemély",
